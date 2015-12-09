@@ -17,7 +17,15 @@ angular.module('starter.controllers', [])
   // Initialize game state
   $scope.newGame = function() {
     // TODO: Set all data properties/structures to their beginning state
-
+    var placeOne = Math.floor(Math.random() * 4);
+    var placeTwo = Math.floor(Math.random() * 4);
+    var placeThree = Math.floor(Math.random() * 4);
+    var placeFour = Math.floor(Math.random() * 4);
+    $scope.solution = [placeOne, placeTwo, placeThree, placeFour];
+    $scope.turn = 1;
+    $scope.guesses = [];
+    $scope.score = [];
+    console.log($scope.solution);
   };
 
   // Run newGame() upon loading
