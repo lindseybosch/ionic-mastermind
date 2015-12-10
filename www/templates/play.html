@@ -14,13 +14,17 @@
 
     <ion-list>
       <!-- TODO: Repeat for each turn -->
-      <ion-item class="row turn">
+      <ion-item class="row turn" ng-repeat="guess in guesses">
 
         <div class="col col-10 text-center turn-num">
           <!-- TODO: Display turn number here -->
-          1
+          {{$index + 1}}
         </div>
         <div class="col text-center left-border">
+        <button class="button button-icon {{ icons[guess[0]] }}" ></button>
+        <button class="button button-icon {{ icons[guess[1]] }}"></button>
+        <button class="button button-icon {{ icons[guess[2]] }}"></button>
+        <button class="button button-icon {{ icons[guess[3]] }}"></button>
           <!-- TODO:
               Display icons in the 4 buttons.
               You only need to add the class for the icon corresponding
@@ -28,7 +32,7 @@
               If an icon has not been set yet for a position, display a
               placeholder icon instead such as 'ion-more'.
               - and -
-              Clicking a button, needs to set that position (data structure)  
+              Clicking a button, needs to set that position (data structure)
               to the currently selected icon.
           -->
           <div class="button-bar">
@@ -40,14 +44,14 @@
         </div>
         <div class="col col-20 text-center left-border">
           <div class="score-wrap">
-            <!-- TODO: If not current turn, display the score for turn. 
-                   The score should show a <div> with a class of 'perfect' 
-                   for each position with correct icon and position 
-                   AND a <div> with a class of 'almost' for each position 
-                   with correct icon but in the incorrect position. 
-                   None of the <div>s should have any content. 
-                   When is all said and done, there should be anywhere from  
-                   zero to 4 of these: 
+            <!-- TODO: If not current turn, display the score for turn.
+                   The score should show a <div> with a class of 'perfect'
+                   for each position with correct icon and position
+                   AND a <div> with a class of 'almost' for each position
+                   with correct icon but in the incorrect position.
+                   None of the <div>s should have any content.
+                   When is all said and done, there should be anywhere from
+                   zero to 4 of these:
                        <div class="perfect"></div>
                           - or -
                        <div class="almost"></div>

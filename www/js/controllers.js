@@ -8,7 +8,7 @@ angular.module('starter.controllers', [])
   // The current selected icon to assign to any clicked position.
   // TODO: Needs to be set when buttons in menu.html are clicked.
   $scope.selectedIcon = 0;
-  $scope.turn = 1;
+  $scope.turns = 1;
   $scope.solution = [];
   $scope.guesses = [];
   $scope.score = [];
@@ -22,8 +22,8 @@ angular.module('starter.controllers', [])
     var placeThree = Math.floor(Math.random() * 4);
     var placeFour = Math.floor(Math.random() * 4);
     $scope.solution = [placeOne, placeTwo, placeThree, placeFour];
-    $scope.turn = 1;
-    $scope.guesses = [];
+    $scope.turns = 1;
+    $scope.guesses = [[1,1,1,1]];
     $scope.score = [];
     console.log($scope.solution);
   };
