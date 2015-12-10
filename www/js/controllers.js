@@ -30,6 +30,10 @@ angular.module('starter.controllers', [])
 
   // Run newGame() upon loading
   $scope.newGame();
+  $scope.changeIcon = function(val){
+    $scope.selectedIcon = val;
+    console.log($scope.selectedIcon);
+  }
 
   /*
   TODO: Call this function when the user clicks a 'score' button.
@@ -39,6 +43,7 @@ angular.module('starter.controllers', [])
   */
   $scope.scoreTurn = function() {
     // TODO: Score the turn
+
 
     // TODO: Show winModal IF turn has cracked the code. Put below line in an if statement.
     // $scope.winModal.show();
