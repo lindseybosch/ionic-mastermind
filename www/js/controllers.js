@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
     $scope.solution = [placeOne, placeTwo, placeThree, placeFour];
     $scope.turns = 1;
     $scope.guesses = [[1,1,1,1]];
-    $scope.score = [];
+    $scope.score = [[]];
     console.log($scope.solution);
   };
 
@@ -42,12 +42,54 @@ angular.module('starter.controllers', [])
         just use a small button with text of 'Score'?
   */
   $scope.scoreTurn = function() {
-    // TODO: Score the turn
+// $scope.solution = [1,3,0,1];
+// $scope.guess    = [0,1,0,1];
 
+//    guess = $scope.guesses[$scope.guesses.length-1];
+    var x = $scope.score.length-1;
+    var isWinner = 0;
 
+    var guess = $scope.guesses[x].slice();
+    var solution = $scope.solution.slice();
+
+    guess.forEach(function(myguess,idx){
+      if (myguess === $scope.solution[idx])
+      {
+        guess[idx] = 'y'
+        solution[idx] = 'y'
+        $scope.score[x].push('y');
+        isWinner++;
+      }
+    })
+    guess.forEach(function(myguess,idx){
+      if (myguess !== 'y' )
+      {
+        if (solution.indexOf(myguess) >= 0 )
+        {
+          guess[idx] = 'a';
+          $scope.score[x].push('a');
+        }
+        else
+        {
+          guess[idx] = 'n';
+        }
+      }
+    })
+    // console.log($scope.solution);
+    // console.log($scope.guess);
     // TODO: Show winModal IF turn has cracked the code. Put below line in an if statement.
-    // $scope.winModal.show();
+    if (isWinner === 4)
+    {
+      $scope.winModal.show();
+    }
+    else
+    {
+      $scope.guesses.push([]);
+      $scope.score.push([]);
+    }
   };
+
+  $scope.scoreTurn();
 
 
   // Create the winner modal. Save on $scope and show when there's a chicken dinner!
